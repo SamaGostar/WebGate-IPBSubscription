@@ -163,8 +163,12 @@ class gatewayApi_zarinpalwg extends apiCore
 
 					)
 			);
-		
+		if($res->Status)
+		{
 		return 'https://www.zarinpal.com/pg/StartPay/' . $result->Authority;
+		}else{
+			echo'ERR: '.$res->Status;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -262,6 +266,8 @@ class gatewayApi_zarinpalwg extends apiCore
 					);
 					
 					return $return;
+				}else{
+					echo'ERR: '.$res->Status;
 				}
 		}
 		return $this->showerror();
